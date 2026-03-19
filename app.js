@@ -1,9 +1,10 @@
 // Supabase kutubxonasini CDN orqali chaqirish
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-// O'ZINGIZNING SUPABASE MA'LUMOTLARINGIZNI SHU YERGA KIRITING
+// XAVFSIZLIK OGOHLANTIRISHI: Maxfiy (secret) kalitni mijoz tomonida ishlatmang!
+// O'zingizning Supabase loyihangizdan "anon" (public) kalitni oling va shu yerga qo'ying.
 const SUPABASE_URL = 'https://teetswqmojrnaysioxor.supabase.co'
-const SUPABASE_ANON_KEY = 'sb_secret_KKmwBuRdzNJreAG2keYHxw_5Sc34E9C'
+const SUPABASE_ANON_KEY = 'sb_publishable_IcthwQaxqla-jQgoHs_eMg_0zMGYeL0'
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
@@ -49,8 +50,7 @@ async function fetchNews() {
                     <div class="p-6 flex-1 flex flex-col">
                         <span class="text-blue-600 text-sm font-semibold mb-2">${formattedDate}</span>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">${item.title}</h3>
-                        <p class="text-gray-600 line-clamp-3 mb-4 flex-1">${item.content}</p>
-                        <a href="#" class="text-blue-700 font-semibold hover:underline mt-auto">To'liq o'qish &rarr;</a>
+                        <p class="text-gray-600 mb-4 flex-1" style="max-height: 4.5rem; overflow: hidden; text-overflow: ellipsis;">${item.content}</p>
                     </div>
                 </div>
             `;
